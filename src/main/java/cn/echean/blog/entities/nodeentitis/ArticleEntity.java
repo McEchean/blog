@@ -21,6 +21,8 @@ public class ArticleEntity extends AbstractEntity {
     private String author;
     @Property
     private Integer likenum;
+    @Property
+    private String category;
 
     @JsonIgnoreProperties("articleEntities")
     @Relationship(type = "HAS_TAB")
@@ -29,12 +31,13 @@ public class ArticleEntity extends AbstractEntity {
     public ArticleEntity() {
     }
 
-    public ArticleEntity(String name, Integer contentId, String date, String author, Integer likenum) {
+    public ArticleEntity(String name, Integer contentId, String date, String author, Integer likenum, String category) {
         this.name = name;
         this.content_id = contentId;
         this.date = date;
         this.author = author;
         this.likenum = likenum;
+        this.category = category;
     }
 
     public Integer getLikenum() {
@@ -53,12 +56,12 @@ public class ArticleEntity extends AbstractEntity {
         this.name = name;
     }
 
-    public Integer getContentId() {
+    public Integer getContent_id() {
         return content_id;
     }
 
-    public void setContentId(Integer contentId) {
-        this.content_id = contentId;
+    public void setContent_id(Integer content_id) {
+        this.content_id = content_id;
     }
 
     public String getDate() {
@@ -77,15 +80,24 @@ public class ArticleEntity extends AbstractEntity {
         this.author = author;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     @Override
     public String toString() {
         return "ArticleEntity{" +
                 "name='" + name + '\'' +
-                ", contentId=" + content_id +
-                ", date=" + date +
+                ", content_id=" + content_id +
+                ", date='" + date + '\'' +
                 ", author='" + author + '\'' +
                 ", likenum=" + likenum +
-                ", tabEntities=" + rTabEntities +
+                ", category='" + category + '\'' +
+                ", rTabEntities=" + rTabEntities +
                 '}';
     }
 }
